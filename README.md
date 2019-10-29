@@ -29,3 +29,18 @@ Aan deze eindopdracht heb ik een aantal eisen gesteld:
 * De opdracht moet volledig functioneel geprogrammeerd worden (In dien er 
 uitzonderingen zijn worden deze benoemd).
 * etc.etc.
+
+
+## Kennis maken met Scala
+
+### Installatie
+
+Om te kunnen beginnen met een programmeertaal moet je meestal het een en ander installeren.
+In het boek 7L7D wordt niet veel gezegd over deze installatie. Zelf ben ik via google bij de
+volgende download gekomen: [Scala download](https://www.scala-lang.org/download/).
+Op deze pagina word weergegeven dat je Scala ook kan downloaden via IntelliJ. Omdat ik
+veel gebruik maak van IntelliJ, ik gebruik het nu zelfs om deze markdown te typen, heb
+ik hier voor gekozen. Ik heb de pagina [Getting started with Scala in IntelliJ](https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html)
+gevolgd. Het enige benodigde was het installeren van een Plugin. Na het installeren van
+de Scala plugin kon ik een nieuw project aanmaken. Bij het aanmaken van mijn eerste Scala project
+werd de Scala SDK geïnstalleerd.
