@@ -97,3 +97,46 @@ aanmaken voeg ik dit toe. De bovenstaande code heb ik neergezet in /Scala/src/Wh
 Om dit uit te voeren typ ik het volgende in de commandline: `scala Scala/src/While.scala`.
 Dit geeft het gewenste resultaat.
 
+De volgende twee loops zijn for loops. Dit op twee manieren:
+De Java-style iteration en de Ruby-style iteration. Deze for
+loops laten niet veel nieuws zien voor mij. Daarom geef ik ze
+hier niet weer.
+
+#### Ranges and Tuples
+In het boek gaan ze er van uit dat je kennis hebt gemaakt met
+Ruby voordat je bezig gaat met Scala. Dit is in mijn geval niet zo.
+Er word gezegd dat Scala net als Ruby gebruik kan maken van
+first-class ranges. Een range kan je definiëren als:
+`val range = 0 until 10`.
+De eerste en laatste in de range kan je ophalen door middel van:
+`range.start` en `range.end`.
+Ook kan je de incrementen veranderen. Zo je een range maken met
+verschillende grootte stappen:
+`(0 to 10) by 5`. Dit geeft als resultaat: `Range = Range (0,5,10)`.
+
+Bij het maken van ranges ben je echter niet gelimiteerd tot 
+integers. Het is dus ook mogelijk om een range te maken van characters:
+`val range = 'a' to 'e'`.
+
+Net als in prolog, waar ik dus geen ervaring mee heb maar het boek
+wel van uit gaat, kan je in Scala ook tuples gebruiken.
+Een tuple is een fixed-length set van objecten. Voor het aanmaken
+van meerdere value assignments gebruikt Scala tuples:
+`val (x, y) = (1, 2)`.
+
+#### Classes in Scala
+
+Simpele classes (zonder methoden/constructor) zijn aan te maken
+met 1 regel. Dit kan dus ook in de commandline:
+`class Person(firstName: String, lastName: String)`.
+
+Wanneer het gaat om een Object-oriented class worden data en behaviour
+gemengt. Omdat dit niet in 1 regel in de commandline te doen is
+maak ik weer een .scala bestand. Dit bestand is net als alle
+andere gemaakte bestanden [hier](https://github.com/jordyebk/APP-Blog/tree/master/Scala/src)
+te vinden. De betreffende class die word aangemaakt heet Compass.
+Dit is een simpel compas met een aantal functies en waardes.
+
+Het aanmaken van deze class lijkt in eerste opzich gigantisch veel op Java.
+Echter verschilt er nog redelijk wat. Er word geen constructor gedefinieërd.
+Alles wat na `class Compass {` komt is namenlijk de constructor.
