@@ -44,3 +44,56 @@ ik hier voor gekozen. Ik heb de pagina [Getting started with Scala in IntelliJ](
 gevolgd. Het enige benodigde was het installeren van een Plugin. Na het installeren van
 de Scala plugin kon ik een nieuw project aanmaken. Bij het aanmaken van mijn eerste Scala project
 werd de Scala SDK geïnstalleerd.
+
+
+### Dag 1
+
+#### Types, Expressions en Conditions
+
+De eerste dag van het kennis maken met Scala begint met een korte uitleg over Scala types.
+Dit lijkt allemaal op hoe ik het gewend ben in Java. Echter zijn alle types in Scala een Object.
+Het volgende stuk van de intro gaat over Expressions en Conditions. Hier word kort uitgelegd
+hoe je een paar simpele true/false expressies maakt. Denk hier aan:
+`5>6` en `5!=2`.
+Ook worden er 2 variabelen assigned en worden deze in een if statement gebruikt.
+Deze if statement ziet er hetzelfde uit als in Java.
+
+```
+val a = 1
+val b = 2
+
+if ( b < a ) {
+ println("true")
+} else {
+ println("false")
+}
+```
+Wat hier opvalt is dat je bij de variabele niet meegeeft wat deze moet zijn. Waar je bij
+Java `int a = 1` had getypt typ je hier `val a = 1`. Scala bepaald dus zelf, op runtime,
+wat deze variabele moet zijn. Ook word er weergegeven dat er 2 manieren zijn voor een declaratie.
+De eerste is `val` en de tweede is `var`. `val` is immutable, `var` niet. Hier komen ze later op terug.
+
+Waar je in andere talen 0/1 als true of false kan gebruiken als een boolean, of `Nil` als false,
+is dit in Scala niet mogelijk. In een if-statement moet dus echt een vergelijking staan.
+
+#### Loops
+Waar ik bij de vorige twee onderdelen alleen in de console heb gewerkt ga ik dit nu runnen als 
+script. Dit word aangeraden omdat de volgende programmas iets complexer zijn. Omdat we bij
+dag 2 bezig gaan met code blocks focussen we nu meer op de imperatieve style van Loops.
+
+De eerste loop die we tegen komen is een simpele While loop. Deze ziet er als volgt uit.
+```
+def While {
+  var i = 1
+  while(i <= 3) {
+    println(i)
+    i += 1
+  }
+}
+While
+```
+Omdat dit de eerste keer is dat we iets niet in de commandline uitvoeren maar een .scala bestand 
+aanmaken voeg ik dit toe. De bovenstaande code heb ik neergezet in /Scala/src/While.scala.
+Om dit uit te voeren typ ik het volgende in de commandline: `scala Scala/src/While.scala`.
+Dit geeft het gewenste resultaat.
+
