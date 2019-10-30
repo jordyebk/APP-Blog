@@ -58,7 +58,7 @@ hoe je een paar simpele true/false expressies maakt. Denk hier aan:
 Ook worden er 2 variabelen assigned en worden deze in een if statement gebruikt.
 Deze if statement ziet er hetzelfde uit als in Java.
 
-```
+```scala
 val a = 1
 val b = 2
 
@@ -82,7 +82,7 @@ script. Dit word aangeraden omdat de volgende programmas iets complexer zijn. Om
 dag 2 bezig gaan met code blocks focussen we nu meer op de imperatieve style van Loops.
 
 De eerste loop die we tegen komen is een simpele While loop. Deze ziet er als volgt uit.
-```
+```scala
 def While {
   var i = 1
   while(i <= 3) {
