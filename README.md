@@ -77,6 +77,7 @@ Waar je in andere talen 0/1 als true of false kan gebruiken als een boolean, of 
 is dit in Scala niet mogelijk. In een if-statement moet dus echt een vergelijking staan.
 
 #### Loops
+
 Waar ik bij de vorige twee onderdelen alleen in de console heb gewerkt ga ik dit nu runnen als 
 script. Dit word aangeraden omdat de volgende programmas iets complexer zijn. Omdat we bij
 dag 2 bezig gaan met code blocks focussen we nu meer op de imperatieve style van Loops.
@@ -103,6 +104,7 @@ loops laten niet veel nieuws zien voor mij. Daarom geef ik ze
 hier niet weer.
 
 #### Ranges and Tuples
+
 In het boek gaan ze er van uit dat je kennis hebt gemaakt met
 Ruby voordat je bezig gaat met Scala. Dit is in mijn geval niet zo.
 Er word gezegd dat Scala net als Ruby gebruik kan maken van
@@ -140,3 +142,31 @@ Dit is een simpel compas met een aantal functies en waardes.
 Het aanmaken van deze class lijkt in eerste opzich gigantisch veel op Java.
 Echter verschilt er nog redelijk wat. Er word geen constructor gedefinieërd.
 Alles wat na `class Compass {` komt is namenlijk de constructor.
+
+Na een 'basic' constructor komen we nu bij auxiliary constructors. Om hier
+kennis mee te maken word de Person class weergegeven. Deze class heeft 2 constructors.
+
+```scala
+class Person(first_name: String) {
+  println("Outer constructor")
+  def this(first_name: String, last_name: String) {
+    this(first_name)
+    println("Inner constructor")
+   }
+  def talk() = println("Hi")
+}
+```
+
+#### Extending Classes
+
+Tot nu toe hebben we alleen nog naar redelijk simpele classes gekeken. In deze sectie
+worden wat ingewikkeldere voorbeelden gegeven. Hoe veel ingewikkelder dit daadwerkelijk is
+zullen we zien.
+
+##### Inheritance
+
+Om overerving duidelijk te maken wordt 
+
+
+
+## Eindopdracht
