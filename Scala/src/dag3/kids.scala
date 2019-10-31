@@ -1,5 +1,4 @@
 import scala.actors._
-import scala.actors.Actor._
 
 case object Poke
 case object Feed

@@ -414,8 +414,16 @@ van XML. Het is zeer duidelijk.
 
 In het boek word mij verteld dat een van de belangrijkste aspecten van Scala
 de manier waarop Scala met concurrency om gaat is. Het voorbeeld wat hier bij gegeven
-word, [hier]() te vinden, heb ik meer dan 1 keer naar moeten kijken voordat ik het
+word, [hier](https://github.com/jordyebk/APP-Blog/blob/master/Scala/src/dag3/kids.scala) te vinden, heb ik meer dan 1 keer naar moeten kijken voordat ik het
 echt begreep. Na het goed doorlezen van de tekst was mij dit echter wel duidelijk.
 In eerste opzich raakte ik verward door de `loop` en de `!`.
+
+Na het zelf uitproberen van dit voorbeeld ben ik er echter achter gekomen dat
+de package `scala.actors` deprecated is. Tegenwoordig word er gebruik gemaakt van Akka.
+Ik heb er voor gekozen, wegens voornamenlijk tijdnood, om de deprecated actors te gebruiken.
+
  
 ## Eindopdracht
+
+Na het probleem met de scala.actors ben ik in de stress geschoten en heb ik geen eindopdracht
+kunnen realiseren.
