@@ -283,6 +283,20 @@ Tijdens mijn ASD project was het mijn leerdoel om kennis op te doen over Higher 
 
 Net als dag 1 staat er een eindopdracht voor dag 2. Het eerste gedeelte van de opdracht
 is om foldLeft te gebruiken om de totale size van een List van strings te berekenen.
+Dit heb ik op de volgende manier uitgewerkt:
+```scala
+def countWords(stringList: List[String]): Int = {
+  stringList.foldLeft(0)((sum, value) => sum + 1)
+}
+
+println(countWords(List("a", "b", "s")))
+```
+
+Het volgende gedeelte van de eindopdracht was het maken van een Censor trait met
+een methode die scheldwoorden vervangd. Shoot moet vervangen worden door Pucky en
+Darn door Beans. De scheldwoorden en de alternatieven moeten in een map opgeslagen worden.
+Een uitbreiding is het ophalen van de scheldwoorden en de alternatieven uit een bestand.
+
 
 
 
