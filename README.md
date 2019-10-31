@@ -348,7 +348,7 @@ trait censor {
   }
 }
 ```
-De woorden de gecensureerd moeten worden staan in een text bestand. Deze worden
+De woorden die gecensureerd moeten worden staan in een text bestand. Deze worden
 er door middel van getCensoredWords uitgehaald en de map censoredWords gestopt.
 De methode censorSentence gebruikt foldLeft om de stringList door te lopen. 
 Wanneer een woord voorkomt in de censoredWords map word deze hier vervangen.
@@ -358,6 +358,64 @@ Het werken aan deze opdracht heeft dit zeker verheldert.
 
 ### Dag 3
 
+Na een redelijk leuke opdracht te mogen maken voor het eind van dag 2 begint nu dag 3.
 
+Dag 3 begint met een stuk over XML. Ik heb alles hier doorgelopen en ben zo niks
+nieuws tegen gekomen. Ik ben er bij dag 1 en 2 achter gekomen dat alles wat er
+benoemd word in het boek letterlijk op te schrijven mij te veel tijd gaat kosten
+voor deze opdracht. Daarom laat ik hier niks zien over het XML gedeelte.
 
+Het eerst volgende stuk is Pattern Matching
+
+#### Pattern Matching
+
+De uitleg gevonden in het boek over pattern matching is: 'Pattern matching lets you conditionally execute code based on some
+piece of data'.
+Er word ook een voorbeeld gegeven:
+```scala
+def doChore(chore: String): String = chore match {
+  case "clean dishes" => "scrub, dry"
+  case "cook dinner" => "chop, sizzle"
+  case _ => "whine, complain"
+}
+
+println(doChore("clean dishes"))
+println(doChore("mow lawn"))
+```
+Dit doet mij sterk denken aan een switch case. Er word dus gekeken of het attribuut,
+de chore hier, overeenkomt met 1 van de cases. Wanneer dit niet zo is gaat deze naar de
+default toe. Hier in scala weergegeven als `_`.
+
+De volgende twee onderdelen, guards en regex, leggen deze uit. Deze werken echter zoals
+ik van te voren had verwacht en ik zie deze ook niet als ingewikkeld.
+
+##### XML with Matching
+
+Hoewel dit net als de vorige twee onderdelen werkte zoals ik het had verwacht,
+wil ik hier toch even wat over zeggen. Het voorbeeld dat gegeven word:
+```scala
+val movies = <movies>
+  <movie>The Incredibles</movie>
+  <movie>WALL E</movie>
+  <short>Jack Jack Attack</short>
+  <short>Geri's Game</short>
+</movies>
+(movies \ "_").foreach { movie =>
+  movie match {
+    case <movie>{movieName}</movie> => println(movieName)
+    case <short>{shortName}</short> => println(shortName + " (short)")
+  }
+}
+```
+Ik vind dat Scala hier een hele mooie en overzichtelijke manier bied van het doorlopen
+van XML. Het is zeer duidelijk.
+
+#### Concurrency
+
+In het boek word mij verteld dat een van de belangrijkste aspecten van Scala
+de manier waarop Scala met concurrency om gaat is. Het voorbeeld wat hier bij gegeven
+word, [hier]() te vinden, heb ik meer dan 1 keer naar moeten kijken voordat ik het
+echt begreep. Na het goed doorlezen van de tekst was mij dit echter wel duidelijk.
+In eerste opzich raakte ik verward door de `loop` en de `!`.
+ 
 ## Eindopdracht
