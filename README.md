@@ -220,6 +220,71 @@ te vinden.
 
 ### Dag 2
 
+In dag 2 gaan we meer kijken naar de functionele kant van Scala.
+Na een korte inleiding van dag 2, die niet veel nieuwe laat zien maar echt
+een intro verhaaltje is, komt het eerste onderdeel.
+
+#### Collections
+
+Om dag 2 af te trappen beginnen we met collections.
+
+##### Lists
+
+Met lists heb ik al kort kennis gemaakt tijdens het maken van de Tic tac toe opdracht.
+Het enige nieuwe voor mij waar ik al achter kwam tijdens de opdracht is dat
+de aanroep van een List een functie is. Zo kan je `()` gebruiken ipv `[]`.
+
+##### Sets
+
+Sets zijn bijna hetzelfde als een List. Een set heeft echter geen expliciete volgorde.
+Het aanmaken van een set is redelijk simpel:
+```scala
+val animals = Set("lions", "tigers", "bears")
+```
+Wanneer je een item wil toevoegen of verwijderen kan je `+` of `-` gebruiken.
+Als je een nieuw item toevoegd aan een set word er een nieuwe set aangemaakt.
+Dit omdat een set Immutable is. Het optellen van 2 sets gebeurd hetzelfde als het
+samenvoegen van 2 lists. Hier was ik bij het maken van tic tac toe achter gekomen.
+Wanneer je 2 sets samen wil voegen gebruik je `++`, ook kan `--` gebruikt worden
+om zo alles wat in de tweede set voorkomt te verwijderen uit de eerste set. Ook
+een intersection is mogelijk. Het resultaat hier van is dat je een nieuwe set krijgt
+met alleen de objecten die voorkomen in beide voorkomen. In het boek word gezegd
+dat je hier voor `**` kan gebruiken. Echter wanneer ik dit probeer krijg ik een error.
+Het lijkt er op dat dit niet meer word ondersteund of veranderd is voor sets.
+
+##### Maps
+
+Een map is een collectie met een key-value koppel. Het aanmaken van een map is redelijk simpel:
+```scala
+val ordinals = Map(0 -> "zero", 1 -> "one", 2 -> "two")
+```
+Je kan een value ophalen aan de hand van de key: `ordinals(2)`. Deze map is 
+immutable en zit simpel in elkaar.
+
+Om verder te kijken naar maps moet ik een mutable HashMap importen. Dit word op
+de volgende manier gedaan: `import scala.collection.mutable.HashMap`. Het aanmaken
+van deze map die veel denken aan het aanmaken van een HashMap in Java.
+```scala
+val map = new HashMap[Int, String]
+```
+Je specificeert welke waardes de keys en values moeten hebben, in dit geval
+een Int en een String. Het toevoegen van een waarde gaat als volgt: `map += 4 -> "four"`.
+Je voegt dus gewoon een `key -> value` combinatie toe.
+
+#### Collections and functions
+
+Na de eerste uitleg over Collections zijn we nu bij het functionele programmeren.
+Collections hebben toegang tot meerdere higher order functions die anonymous functies
+accepteren als parameter. Een voorbeeld hier van is een for each functie: `list.foreach(elem => ...)`.
+Omdat dit gigantisch veel lijkt op de functies waar ik mee bekend ben in Java ga ik hier niet echt op in.
+Tijdens mijn ASD project was het mijn leerdoel om kennis op te doen over Higher order functions.
+
+### Eind dag 2
+
+Net als dag 1 staat er een eindopdracht voor dag 2. Het eerste gedeelte van de opdracht
+is om foldLeft te gebruiken om de totale size van een List van strings te berekenen.
+
+
 
 
 ## Eindopdracht
