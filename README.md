@@ -165,7 +165,54 @@ zullen we zien.
 
 ##### Inheritance
 
-Om overerving duidelijk te maken wordt 
+Om overerving duidelijk te maken wordt er een class Employee weergegeven.
+Deze class extend de Person class gebruikt bij [classes in scala](#classes-in-scala).
+De Employee class ziet er als volgt uit:
+```scala
+class Employee(override val name: String,
+                        val number: Int) extends Person(name) {
+  override def talk(message: String) {
+    println(name + " with number " + number + " says " + message)
+  }
+  override def id():String = number.toString
+}
+
+val employee = new Employee("Yoda", 4)
+employee.talk("Extend or extend not. There is no try.")
+```
+Wat mij hier opvalt is dat je bij alles wat al bestaat ook echt `override` neer moet zetten.
+Ook hoef je bij de constructor van de superklasse ook geen `super()` aan te roepen.
+
+##### Traits
+
+Een trait kan je zien als een gedeeltelijke class implementatie. Het voorbeeld dat gegeven
+word is als volgt:
+```scala
+class Person(val name:String)
+
+trait Nice {
+def greet() = println("Howdily doodily.")
+}
+
+class Character(override val name:String) extends Person(name) with Nice
+
+val flanders = new Character("Ned")
+flanders.greet
+```
+Het is dus mogelijk om een class aan te maken die een trait met zich meeneemt.
+Character erft alles over van persoon, het verschil tussen Character en Person
+is dat character een trait heeft.
+
+### Einde dag 1
+
+Als afsluiter van dag 1 staat er een kleine opdracht die gebruikt maakt van
+de dingen waar mee ik kennis heb gemaakt. Deze opdracht is het maken van een
+tic-tac-toe bord. Het spel krijgt een bord mee met de gemaakte zetten. Het resultaat
+laat zien of het spel nog bezig, dat het gelijk spel is of dat iemand heeft gewonnen.
+
+Om duidelijker weer te geven heb ik de source map iets netter geordend. Zo staan
+alle .scala bestanden van dag 1 onder dag 1.
+
 
 
 
