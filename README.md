@@ -297,7 +297,66 @@ een methode die scheldwoorden vervangd. Shoot moet vervangen worden door Pucky e
 Darn door Beans. De scheldwoorden en de alternatieven moeten in een map opgeslagen worden.
 Een uitbreiding is het ophalen van de scheldwoorden en de alternatieven uit een bestand.
 
+Om te beginnen heb ik een simpele sentence aangemaakt:
+```scala
+class Sentence(val stringList: List[String]) {
+  def printSentence() : Unit = {
+    stringList.foreach(string => print(string + " "))
+  }
+}
+```
+Deze krijgt een list van strings en print deze uit.
+Hierna heb ik een censoredSentence gemaakt. Deze extend de gewone sentence.
+```scala
+class CensoredSentence(override val stringList: List[String]) extends Sentence(stringList) with censor {
+  override def printSentence(): Unit = {
+    val censoredSentence = censorSentence(stringList)
+    println(censoredSentence)
+  }
+}
+```
+CensoredSentence extend zo dus de Sentence klasse. Ook heeft deze de trait Censor
+zoals beschreven in de opdracht. Ik override de printSentence methode uit sentence.
+De stringList die mee word gegeven aan de CensoredSentence wordt eerste 
+gecensureerd door middel van de censorSentence methode uit de trait Censor.
+De censor trait ziet er als volgt uit:
+```scala
+trait censor {
+  var censoredWords = getCensoredWords
 
+  def getCensoredWords : Map[String, String] = {
+    var map = Map.empty[String, String]
+
+    val fileLines = Source.fromFile("censoredwords.txt").getLines()
+    fileLines.foreach(line => {
+      val split = line.split("=")
+      map += split(0) -> split(1)
+    })
+    map
+  }
+
+  def checkWord(string: String) : String = {
+    if (censoredWords.contains(string)){
+      return censoredWords.get(string).mkString("")
+    }
+    string
+  }
+
+  def censorSentence(stringList: List[String]) : String = {
+    val returnValue = stringList.foldLeft("")((sum, value) => {sum + checkWord(value) + " "})
+    returnValue
+  }
+}
+```
+De woorden de gecensureerd moeten worden staan in een text bestand. Deze worden
+er door middel van getCensoredWords uitgehaald en de map censoredWords gestopt.
+De methode censorSentence gebruikt foldLeft om de stringList door te lopen. 
+Wanneer een woord voorkomt in de censoredWords map word deze hier vervangen.
+
+Voor ik begon aan deze opdracht was de foldLeft functie mij niet geheel duidelijk.
+Het werken aan deze opdracht heeft dit zeker verheldert.
+
+### Dag 3
 
 
 
