@@ -213,6 +213,12 @@ laat zien of het spel nog bezig, dat het gelijk spel is of dat iemand heeft gewo
 Om duidelijker weer te geven heb ik de source map iets netter geordend. Zo staan
 alle .scala bestanden van dag 1 onder dag 1.
 
+Deze opdracht ging makkelijker dan verwacht. Het enige wat af en toe voor verwarring
+zorgde was de syntax. Gelukkig geeft intelliJ hier veel tips. De code voor deze opdracht
+is [hier](https://github.com/jordyebk/APP-Blog/blob/master/TicTacToe/src/tictactoe.scala)
+te vinden.
+
+### Dag 2
 
 
 
