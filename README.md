@@ -418,12 +418,18 @@ word, [hier](https://github.com/jordyebk/APP-Blog/blob/master/Scala/src/dag3/kid
 echt begreep. Na het goed doorlezen van de tekst was mij dit echter wel duidelijk.
 In eerste opzich raakte ik verward door de `loop` en de `!`.
 
-Na het zelf uitproberen van dit voorbeeld ben ik er echter achter gekomen dat
-de package `scala.actors` deprecated is. Tegenwoordig word er gebruik gemaakt van Akka.
-Ik heb er voor gekozen, wegens voornamenlijk tijdnood, om de deprecated actors te gebruiken.
+Na het zelf uitproberen van dit voorbeeld ben ik er achter gekomen dat
+de package `scala.actors` deprecated is in die nieuwe versies van Scala. Tegenwoordig word er gebruik gemaakt van Akka.
+
+Om kennis te maken met Concurrency zal ik vanaf nu geen gebruik meer maken van het boek 7L7W.
+Akka bied een 'quickstart guide' om er zo kennis mee te maken. Deze guide is 
+[hier](https://developer.lightbend.com/guides/akka-quickstart-scala/index.html) te vinden.
+
+##### Concurrency met Akka
+Om deze guide te beginnen wordt er gevraagd om een project te downloaden. Dit project 
+heb ik gedownload en is [hier]() te vinden.
+
 
  
 ## Eindopdracht
 
-Na het probleem met de scala.actors ben ik in de stress geschoten en heb ik geen eindopdracht
-kunnen realiseren.
