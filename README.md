@@ -427,7 +427,9 @@ Akka bied een 'quickstart guide' om er zo kennis mee te maken. Deze guide is
 
 ##### Concurrency met Akka
 Om deze guide te beginnen wordt er gevraagd om een project te downloaden. Dit project 
-heb ik gedownload en is [hier]() te vinden.
+heb ik gedownload en is [hier](https://github.com/jordyebk/APP-Blog/tree/master/Concurrency/akka-quickstart-scala) te vinden.
+
+Dit project heb ik geimporteerd in IntelliJ om deze zo te kunnen inspecteren.
 
 
  
