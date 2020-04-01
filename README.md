@@ -14,6 +14,7 @@ In dit boek maak je kennis met een aantal verschillende talen. Ik zal alleen het
 Scala volgen. In dit hoofdstuk maak je in drie dagen kennis met Scala door middel van voorbeelden
 en opdrachten. Mijn resultaten van de drie dagen zullen in deze Blog te vinden zijn.
 
+### Eindopdracht
 Na het kennis maken met Scala zal ik werken aan een eindopdracht.
 Deze eindopdracht moet laten zien dat ik mij heb kunnen verdiepen in de programmeertaal. 
 De opdracht waar ik aan wil werken is een WebScraper.
@@ -441,6 +442,6 @@ Het gebruik van Actors doet mij heel erg denken aan [Redux](https://redux.js.org
 tijdens mijn DWA (Develop web applications) Minor.
 
 
- 
 ## Eindopdracht
 
+Zoals benoemd in het hoofdstuk [Motivatie en introductie](#Motivatie-en-introductie)
