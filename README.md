@@ -21,14 +21,17 @@ In mijn vrije tijd stop ik veel uren in een MMORPG genaamd Oldschool Runescape (
 OSRS is een spel wat gericht is op progressie. Er is een groot aantal 'Skills' die je kan
 trainen. Deze skills zitten gekoppeld aan je accountnaam en kunnen ingezien worden op
 hun highscores website: [Link](https://secure.runescape.com/m=hiscore_oldschool/overall.ws).
-Het idee is dat je een aantal accountnamen op kan geven. Aan de hand van deze accountnamen
-worden de highscores opgehaald. Om te kijken welke 'Skills' gemiddeld het laagste zijn
-worden alle levels per accountnaam opgehaald. Per skill wordt een gemiddelde gegeven.
+Het idee is dat je een accountnaam op kan geven. Aan de hand van deze naam
+worden de highscores opgehaald. Om te kijken hoe het account er voor staat
+met zijn/haar progressie wordt er gekeken naar de 3 hoogste en 3 laagste skills.
 
 Aan deze eindopdracht heb ik een aantal eisen gesteld:
 * De opdracht moet volledig functioneel geprogrammeerd worden (In dien er 
 uitzonderingen zijn worden deze benoemd).
-* etc.etc.
+* Wanneer er meerdere usernames worden opgegeven moeten deze parallel worden verwerkt.
+
+De eerste eis heb ik gesteld omdat ik kennis wil maken met het paradigma functioneel programmeren.
+Met Object Oriënted programming heb ik al eerder kennis gemaakt.
 
 
 ## Kennis maken met Scala
@@ -429,7 +432,13 @@ Akka bied een 'quickstart guide' om er zo kennis mee te maken. Deze guide is
 Om deze guide te beginnen wordt er gevraagd om een project te downloaden. Dit project 
 heb ik gedownload en is [hier](https://github.com/jordyebk/APP-Blog/tree/master/Concurrency/akka-quickstart-scala) te vinden.
 
-Dit project heb ik geimporteerd in IntelliJ om deze zo te kunnen inspecteren.
+Dit project heb ik geimporteerd in IntelliJ om deze zo te kunnen inspecteren. Dit project geeft een simpel voorbeeld
+van de werking van Actors. Zo zijn er 3 verschillende Actors aanwezig aanwezig.
+Deze zijn: Greet, GreeterBot en GreeterMain.
+
+Door het gebruikt van Actors kan je verschillende acties laten uitvoeren aan de hand van een message die je meegeeft.
+Het gebruik van Actors doet mij heel erg denken aan [Redux](https://redux.js.org/introduction/getting-started). Ik heb kennis gemaakt met Redux
+tijdens mijn DWA (Develop web applications) Minor.
 
 
  

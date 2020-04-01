@@ -57,7 +57,7 @@ object GreeterMain {
 
       Behaviors.receiveMessage { message =>
         //#create-actors
-        val replyTo = context.spawn(GreeterBot(max = 3), message.name)
+        val replyTo = context.spawn(GreeterBot(max = 5), message.name)
         //#create-actors
         greeter ! Greeter.Greet(message.name, replyTo)
         Behaviors.same
