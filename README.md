@@ -14,7 +14,7 @@ In dit boek maak je kennis met een aantal verschillende talen. Ik zal alleen het
 Scala volgen. In dit hoofdstuk maak je in drie dagen kennis met Scala door middel van voorbeelden
 en opdrachten. Mijn resultaten van de drie dagen zullen in deze Blog te vinden zijn.
 
-### Eindopdracht
+### Beschrijving Eindopdracht
 Na het kennis maken met Scala zal ik werken aan een eindopdracht.
 Deze eindopdracht moet laten zien dat ik mij heb kunnen verdiepen in de programmeertaal. 
 De opdracht waar ik aan wil werken is een WebScraper.
@@ -444,4 +444,11 @@ tijdens mijn DWA (Develop web applications) Minor.
 
 ## Eindopdracht
 
-Zoals benoemd in het hoofdstuk [Motivatie en introductie](#Motivatie-en-introductie)
+Zoals benoemd in het hoofdstuk [Motivatie en introductie](#Motivatie-en-introductie) ga ik voor mijn eindopdracht een webscraper maken. 
+Bij het maken van deze eindopdracht zal ik gebruik moeten maken van alles wat ik heb geleerd
+tijdens het schrijven van deze Blog.
+
+Wat deze eindopdracht precies is staat uitgelegd in het hoofdstuk [Beschrijving Eindopdracht](#Beschrijving-Eindopdracht).
+Ook zijn hier de eisen weergegeven.
+
+
