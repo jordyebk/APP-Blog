@@ -557,3 +557,57 @@ private def timeMethod(method: () => Unit) = {
     println("Method took " + (end - start)/1000000000.0 + " seconds.")
   }
 ```
+
+Voor het parallel uitvoeren was wat meer code nodig. Zo moest ik een Actor maken waar ik een
+bericht naar toe kan sturen. Deze actor ziet er als volgt uit: 
+```scala
+object LookupActor {
+  case class Lookup(user: String)
+
+  def apply(): Behavior[Lookup] =
+    Behaviors.receive {
+      case (context, Lookup(user)) =>
+        HighscoreScraper.LookupHighscores(user)
+        context.log.info(user)
+        Behaviors.same
+    }
+}
+```
+
+Wanneer deze dus een _Lookup(user)_ ontvangt zal deze dezelfde functie aanroepen als bij het
+sequentieel uitvoeren. Ook voor het uitvoeren en timen van het parallel uitvoeren was iets meer code nodig:
+```scala
+val system = ActorSystem(LookupActor(), "LookupactorSystem")
+  val lookupActor: ActorRef[LookupActor.Lookup] = system
+  timeMethod{lookupParallel}
+  
+private def lookupParallel(): Unit = {
+  usernames.foreach(user => {
+    lookupActor ! LookupActor.Lookup(user)
+  })
+}
+```
+Zo moet eerst een _ActorSystem_ aangemaakt worden waar de actor aan toegevoegd kan worden.
+
+Het verschil in snelheid is, zoals verwacht, duidelijk te zien. Zo is het parallel uitvoeren natuurlijk stukken sneller. 
+Als voorbeeld geef ik 1 van de resultaten. Iedere keer dat je het programma uitvoert zal er een klein verschil zitten
+in de tijden, maar wel is parallel altijd sneller dan Sequentieel.
+
+```text
+Looking up sequentially: 
+Method took 0.215922 seconds.
+
+Looking up parallel: 
+Method took 0.0013857 seconds.
+```
+
+#### Terugblik
+
+Tijdens het maken van deze blog heb ik kennis gemaakt met Scala. Scala had voor mij een hele hoop nieuwe dingen en
+ook een aantal verassingen. Het programmeren van de eindopdracht verliep niet al te makkelijk.
+Zo zat ik vaak vast en vind ik dat ik een aantal dingen heel slordig heb opgelost.
+Wel was ik verbaasd dat sommige stukken waar ik op vast liep een hele makkelijke oplossing hadden.
+
+Ook had ik graag iets meer aandacht besteed aan het onderdeel Concurrency. Zo was in het boek 7L7W
+een package deprecated waar door ik het boek niet heb kunnen volgen. Zo heb ik Akka gevolgd maar heb
+ik het gevoel dat hier veel minder informatie werd gegeven.
