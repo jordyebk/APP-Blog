@@ -3,15 +3,17 @@ import java.io.{File, PrintWriter}
 import scala.io.Source
 
 object OsrsHighscoreLookup extends App {
-  val usernames = Array("Road 23", "Tunnels", "Dawnshifter")
+  val usernames = Array("Road_23", "Tunnels", "Dawnshifter")
 
   HighscoreScraper.LookupHighscores(usernames(0))
+
+  usernames.foreach(user => HighscoreScraper.LookupHighscores(user))
 }
 
 
 object HighscoreScraper {
   def LookupHighscores(username: String) = {
-    val path = "./src/main/resources/road23.html"
+    val path = "./src/main/resources/"+username+".html"
 
     val allLevels = getAllLevels(parseHtml(path))
 
