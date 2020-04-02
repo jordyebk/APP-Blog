@@ -22,9 +22,8 @@ In mijn vrije tijd stop ik veel uren in een MMORPG genaamd Oldschool Runescape (
 OSRS is een spel wat gericht is op progressie. Er is een groot aantal 'Skills' die je kan
 trainen. Deze skills zitten gekoppeld aan je accountnaam en kunnen ingezien worden op
 hun highscores website: [Link](https://secure.runescape.com/m=hiscore_oldschool/overall.ws).
-Het idee is dat je een accountnaam op kan geven. Aan de hand van deze naam
-worden de highscores opgehaald. Om te kijken hoe het account er voor staat
-met zijn/haar progressie wordt er gekeken naar de 3 hoogste en 3 laagste skills.
+Het idee is dat je een lijst van accountnamen op kan geven. Aan de hand van deze namen worden de
+skills met bijbehorende levels opgehaald en opgeslagen in een tekstbestand.
 
 Aan deze eindopdracht heb ik een aantal eisen gesteld:
 * De opdracht moet volledig functioneel geprogrammeerd worden (In dien er 
@@ -455,5 +454,25 @@ Voor deze eindopdracht is een project aangemaakt aan de hand van het Akka voorbe
 [hier](https://github.com/jordyebk/APP-Blog/tree/master/Eindopdracht/Webscraper) te vinden.
 
 
-###
+### Uitwerking
+
+Ik heb er voor gekozen om tijdens deze opdracht alleen gebruik te maken
+van lokaal beschikbare .html pagina's. Een uitbreiding van de opdracht zou kunnen zijn
+dat deze pagina's ook daadwerkelijk aan de hand van een URL opgehaald worden.
+
+Wanneer er een username wordt gegeven aan de highscore scraper zal als eerste de juiste .html pagina 
+worden opgezocht. Deze .html pagina wordt omgezet naar een string en daarna geparseerd.
+Dit gebeurd in de onderstaande code: 
+
+```scala
+private def parseHtml(html: String): Array[Any] = {
+      val trimmedHtlm = trimHtml(loadHtml(html))
+      trimmedHtlm.indices.map(i => if (trimmedHtlm.slice(i, i+4) == "<tr>") getTableRow(trimmedHtlm, i+4))
+        .filter(_ != (())) // Remove boxed objects
+        .map(e => e.asInstanceOf[String].filter(char => char != ' ' && char != '\n' && char != '\r'))
+        .filter(e => checkIfContainsSkill(e))
+        .toArray
+  }
+```
+
 

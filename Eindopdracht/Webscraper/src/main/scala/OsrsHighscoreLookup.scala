@@ -55,14 +55,14 @@ object HighscoreScraper {
     writeLevelsToFile(username, convertMapToText(allLevels))
 }
 
-    private def parseHtml(html: String): Array[Any] = {
+  private def parseHtml(html: String): Array[Any] = {
       val trimmedHtlm = trimHtml(loadHtml(html))
       trimmedHtlm.indices.map(i => if (trimmedHtlm.slice(i, i+4) == "<tr>") getTableRow(trimmedHtlm, i+4))
         .filter(_ != (())) // Remove boxed objects
         .map(e => e.asInstanceOf[String].filter(char => char != ' ' && char != '\n' && char != '\r'))
         .filter(e => checkIfContainsSkill(e))
         .toArray
-    }
+  }
 
   private def trimHtml(html: String): String = {
     val divName = "<div id=\"contentHiscores\">"
