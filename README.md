@@ -475,4 +475,85 @@ private def parseHtml(html: String): Array[Any] = {
   }
 ```
 
+De inhoud van de pagina wordt eerst getrimmed. De onderdelen van de pagina die niet nodig zijn (bevatten geen skills/levels)
+worden uit de string gehaald. Dit wordt gedaan aan de hand van de onderstaande functie:
 
+```scala
+private def trimHtml(html: String): String = {
+    val divName = "<div id=\"contentHiscores\">"
+    val begin = html.indexOfSlice(divName)
+    val cutHtml = html.drop(begin)
+    val end = cutHtml.indexOfSlice("</div>")
+    cutHtml.slice(begin+divName.length, end)
+  }
+```
+
+Zo wordt alleen de div die de table bevat met de highscores overgelaten. Daarna wordt deze string gemapped
+naar een Array van Strings. Deze strings zijn alle Table Rows. Deze Array wordt dan opgeschoond met een 2 filters.
+Bij de eerste filter worden de zogenaamde 'boxed objects' verwijderd. Bij de tweede worden alle spaties, '\n' en
+'\r' weggehaald. Dit was voornamenlijk om tijdens het programmeren een duidelijker beeld te krijgen van wat
+er nou daadwerkelijk in de string stond.
+
+De laatste filter in de functie _parseHtml_ controleerd of de table row een skill bevat. Dit 
+omdat er ook rows bestaan in de tabel waar geen skills in staan. Hier voor wordt de volgende functie gebruikt:
+
+```scala
+private def checkIfContainsSkill(html: String): Boolean = {
+    val skills = loadTxt("./src/main/resources/ListOfSkills.txt")
+    skills.foreach(skill => {
+      if (html.contains("Bounty")) return false
+      else if (html.contains(skill)) return true
+    })
+    false
+  }
+```
+Alle mogelijke skills staan opgeslagen in een tekst bestand. Deze worden uitgelezen en aan de hand van deze skills wordt
+gekeken of een table row deze skill bevat.
+
+Op dit moment zitten we dus met een Array van strings. Deze strings zijn de table rows. De enige data die belangrijk is
+zijn de skill namen en de levels die hier bij horen. Om de Array om te zetten naar een Map met skillname -> level paren wordt de volgende
+functie gebruikt:
+
+```scala
+private def getAllLevels(parsedHtml: Array[Any]): Map[String, Int] = {
+    parsedHtml.map(Any => {
+      val html = Any.asInstanceOf[String]
+      checkWhichSkill(html) -> findLevelInHtml(html)
+    }).toMap
+  }
+```
+In deze functie worden de skill naam en het bijbehorende level uit de string met de table row gehaald.
+
+Uiteindelijk worden alle levels aanwezig in de map opgeslagen in een tekstbestand. Om
+dit een beetje leesbaar te maken word de map met de volgende functie omgezet naar een String:
+
+```scala
+private def convertMapToText(levels: Map[String, Int]): String = {
+    levels.map{case (k, v) => "Skill: " + k + " - Level: " + v}.mkString("\n")
+  }
+```
+
+### Het parallel verwerken
+Om te kijken of het sneller is om het scrapen parallel of sequentieel te doen heb ik hier voor een vergelijking gemaakt.
+Voor deze vergelijking heb ik iets beter kennis kunnen maken met Actors van Akka.
+
+Voor de sequentiele aanroep was de volgende code nodig:
+
+```scala
+timeMethod{lookupSequentially}
+
+private def lookupSequentially(): Unit = {
+    usernames.foreach(user => HighscoreScraper.LookupHighscores(user))
+  }
+```
+
+Om te controleren hoe lang dit duurde heb ik de methode _timeMethod_ aangemaakt. Deze ziet er als volgt uit:
+
+```scala
+private def timeMethod(method: () => Unit) = {
+    val start = System.nanoTime
+    method()
+    val end = System.nanoTime
+    println("Method took " + (end - start)/1000000000.0 + " seconds.")
+  }
+```

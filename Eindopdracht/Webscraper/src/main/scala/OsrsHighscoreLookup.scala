@@ -7,8 +7,8 @@ import akka.actor.typed.scaladsl.Behaviors
 object OsrsHighscoreLookup extends App {
   val usernames = Array("Road_23", "Tunnels", "Dawnshifter")
 
-  //println("Looking up sequentially: ")
-  //timeMethod{lookupSequentially}
+  println("Looking up sequentially: ")
+  timeMethod{lookupSequentially}
 
   println("Looking up parallel: ")
   val system = ActorSystem(LookupActor(), "LookupactorSystem")
