@@ -1,13 +1,48 @@
 import java.io.{File, PrintWriter}
 
 import scala.io.Source
+import akka.actor.typed.{ActorRef, ActorSystem, Behavior}
+import akka.actor.typed.scaladsl.Behaviors
 
 object OsrsHighscoreLookup extends App {
   val usernames = Array("Road_23", "Tunnels", "Dawnshifter")
 
-  HighscoreScraper.LookupHighscores(usernames(0))
+  //println("Looking up sequentially: ")
+  //timeMethod{lookupSequentially}
 
-  usernames.foreach(user => HighscoreScraper.LookupHighscores(user))
+  println("Looking up parallel: ")
+  val system = ActorSystem(LookupActor(), "LookupactorSystem")
+  val lookupActor: ActorRef[LookupActor.Lookup] = system
+  timeMethod{lookupParallel}
+
+  private def lookupSequentially(): Unit = {
+    usernames.foreach(user => HighscoreScraper.LookupHighscores(user))
+  }
+
+  private def lookupParallel(): Unit = {
+    usernames.foreach(user => {
+      lookupActor ! LookupActor.Lookup(user)
+    })
+  }
+
+  private def timeMethod(method: () => Unit) = {
+    val start = System.nanoTime
+    method()
+    val end = System.nanoTime
+    println("Method took " + (end - start)/1000000000.0 + " seconds.")
+  }
+}
+
+object LookupActor {
+  case class Lookup(user: String)
+
+  def apply(): Behavior[Lookup] =
+    Behaviors.receive {
+      case (context, Lookup(user)) =>
+        HighscoreScraper.LookupHighscores(user)
+        context.log.info(user)
+        Behaviors.same
+    }
 }
 
 
